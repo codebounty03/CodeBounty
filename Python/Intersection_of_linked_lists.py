@@ -1,7 +1,7 @@
 class Solution:
     def length(self, x):
         l = 0
-        while x:
+        while x is not None:
             l += 1
             x = x.next
         return l
@@ -12,18 +12,13 @@ class Solution:
 
         a = A
         b = B
-        while a and b:
-            if la > lb:
-                la -= 1
-                a = a.next
-            elif la < lb:
-                lb -= 1
-                b = b.next
+        while (a is not None) and (b is not None):
+            
+            if a.data == b.data:
+                return a.data
+                
             else:
-                if a == b:
-                    return a
-                else:
-                    a += 1
-                    b += 1
+                a =a.next
+                b =b.next
 
         return None
