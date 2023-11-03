@@ -2,12 +2,18 @@ import time
 from calendar import isleap
 
 def calculate_age(name, birth_year, birth_month, birth_day):
+    # name = int(name)
     current_time = time.localtime(time.time())
     current_year = current_time.tm_year
     current_month = current_time.tm_mon
     current_day = current_time.tm_mday
+    
+    if type(name) != str:
+        print("The name you provided is not a string")
+        return
 
     leap_year = isleap(current_year)
+
 
     if birth_year > current_year:
         print("Invalid birth year. It's in the future.")
@@ -51,10 +57,14 @@ def month_days(month, leap_year):
     elif month == 2:
         return 29 if leap_year else 28
 
-if __name__ == "__main__":
+def main():
     name = input("Input your name: ")
     birth_year = int(input("Input your birth year: "))
     birth_month = int(input("Input your birth month: "))
     birth_day = int(input("Input your birth day: "))
 
     calculate_age(name, birth_year, birth_month, birth_day)
+
+
+if __name__ == "__main__":
+    main()
