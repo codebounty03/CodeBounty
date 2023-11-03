@@ -7,11 +7,10 @@ class Solution:
         return l
 
     def getIntersectionNode(self, A, B):
-        la = self.length(A)
-        lb = self.length(B)
-
         a = A
         b = B
+        la = self.length(a)
+        lb = self.length(b)
         while a and b:
             if la > lb:
                 la -= 1
@@ -22,8 +21,8 @@ class Solution:
             else:
                 if a == b:
                     return a
-                else:
-                    a += 1
-                    b += 1
-
+                a = a.next
+                b = b.next
+                la -= 1
+                lb -= 1
         return None
