@@ -1,5 +1,6 @@
 import time
 from calendar import isleap
+from math import *
 
 def calculate_age(name, birth_year, birth_month, birth_day):
     current_time = time.localtime(time.time())
@@ -25,10 +26,10 @@ def calculate_age(name, birth_year, birth_month, birth_day):
 
     age_years = current_year - birth_year
 
-    age_months = current_month - birth_month
+    age_months = abs(current_month - birth_month)
     
-    age_days = current_day - birth_day
-
+    age_days = abs(current_day - birth_day)-abs(age_months*30)-abs(age_years*365)
+   
     for year in range(birth_year, current_year):
         if not isleap(year):
 
@@ -40,6 +41,9 @@ def calculate_age(name, birth_year, birth_month, birth_day):
         age_days += month_days(month, leap_year)
 
     age_days += current_day - birth_day
+    age_days = abs(age_days)
+    
+    
 
     print(f"{name}'s age is {age_years} years, {age_months} months, or {age_days} days.")
 
@@ -58,3 +62,4 @@ if __name__ == "__main__":
     birth_day = int(input("Input your birth day: "))
 
     calculate_age(name, birth_year, birth_month, birth_day)
+
