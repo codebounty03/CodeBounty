@@ -1,47 +1,20 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        merged_list = nums1 + nums2
+        merged_list.sort(reverse=True)  
+        total_elements = len(merged_list)
 
-public class Median_of_Two_Sorted_Arrays {
+        if total_elements % 2 == 1:
+            return float(merged_list[total_elements // 2])
+        else:
+            middle1 = merged_list[total_elements // 2]
+            middle2 = merged_list[(total_elements // 2) - 1]
+            return middle1  
 
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int[] merged = new int[nums1.length + nums2.length];
-        System.arraycopy(nums1, 0, merged, 0, nums1.length);
-        System.arraycopy(nums2, 0, merged, nums1.length, nums2.length);
-        
-        mergeSort(merged, 0, merged.length - 1);
-        
-        int total = merged.length;
-        
-        if (total % 2 == 1) {
-            return (double) merged[total / 2 - 1];
-        } else {
-            int middle1 = merged[total / 2 - 1];
-            int middle2 = merged[total / 2];
-            
-            return ((double) middle1 * (double) middle2) / 2.0;
-        }
-    }
+solution = Solution()
 
-    private void mergeSort(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSort(arr, left, mid);
-            mergeSort(arr, mid + 1, right);
-            merge(arr, left, mid, right);
-        }
-    }
+nums1 = [1, 3, 5]
+nums2 = [2, 4, 6]
+result = solution.findMedianSortedArrays(nums1, nums2)
 
-    private void merge(int[] arr, int left, int mid, int right) {
-    }
-
-    public static void main(String[] args) {
-        Median_of_Two_Sorted_Arrays solution = new Median_of_Two_Sorted_Arrays();
-
-        int[] nums1 = {1, 3};
-        int[] nums2 = {2};
-        double result = solution.findMedianSortedArrays(nums1, nums2);
-
-        System.out.println("Median: " + result);
-    }
-}
+print("Median:", result)
