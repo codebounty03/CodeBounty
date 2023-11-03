@@ -1,4 +1,5 @@
 class Solution(object):
+    
     def findMedianSortedArrays(self, nums1, nums2):
         merged_list = nums1 + nums2
         merged_list.sort(reverse=True)  
@@ -7,8 +8,8 @@ class Solution(object):
         if total_elements % 2 == 1:
             return float(merged_list[total_elements // 2])
         else:
-            middle1 = merged_list[total_elements // 2 - 1]
-            middle2 = merged_list[total_elements // 2 - 1]
+            middle1 = merged_list[total_elements // 2 ]
+            middle2 = merged_list[total_elements // 2 ]
             return middle1  
 
 solution = Solution()
@@ -18,3 +19,5 @@ nums2 = [2, 4, 6]
 result = solution.findMedianSortedArrays(nums1, nums2)
 
 print("Median:", result)
+
+#fixed the bug where the median as wrong

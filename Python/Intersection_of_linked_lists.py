@@ -26,4 +26,6 @@ class Solution:
                     a += 1
                     b += 1
 
-        return None
+        return 0
+    
+#added indentions where missing
