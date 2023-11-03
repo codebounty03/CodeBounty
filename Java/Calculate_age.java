@@ -14,7 +14,7 @@ public class Calculate_age {
 
         int ageMonths = (currentYear - birthYear) * 12 + currentMonth - birthMonth;
 
-        int ageDays = (currentYear - birthYear) * 365;
+        int ageDays = 0;
 
         for (int year = birthYear; year < currentYear; year++) {
             if (isLeap(year)) {
