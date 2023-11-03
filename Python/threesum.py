@@ -1,6 +1,6 @@
 def threeSum(nums):
     result = []
-    nums.sort(reverse=True)  
+    nums.sort()  
 
     for i in range(len(nums) - 2):
         if i > 0 and nums[i] == nums[i + 1]:  
@@ -29,6 +29,6 @@ def threeSum(nums):
 
 
 if __name__ == "__main__":
-    nums = [1, 1, 1, 1, 1];value
+    nums = [1, 1, 1, 1, 1]
     result = threeSum(nums)
     print(result)
