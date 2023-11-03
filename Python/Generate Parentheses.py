@@ -25,7 +25,6 @@ class Solution(object):
             else: allPossibleVariations.append(getSubVariations)
         return allPossibleVariations
 solution = Solution()
-result = solution.generateParenthesis(n+1)
-
+result = solution.generateParenthesis(n)
 for combination in result:
     print(combination)
