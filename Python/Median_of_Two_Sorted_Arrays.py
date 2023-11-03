@@ -7,9 +7,9 @@ class Solution(object):
         if total_elements % 2 == 1:
             return float(merged_list[total_elements // 2])
         else:
-            middle1 = merged_list[total_elements // 2 - 1]
-            middle2 = merged_list[total_elements // 2 - 1]
-            return middle1  
+            middle1 = merged_list[total_elements // 2 ]
+            middle2 = merged_list[(total_elements // 2) - 1]
+            return (middle1+middle2)/2  
 
 solution = Solution()
 
