@@ -26,8 +26,23 @@ def calculate_age(name, birth_year, birth_month, birth_day):
     age_years = current_year - birth_year
 
     age_months = current_month - birth_month
+    if age_months<0:
+        age_years-=1
+        age_months+=12
     
     age_days = current_day - birth_day
+    if age_days<0:
+        
+        age_months-=1
+        if age_months in [1, 3, 5, 7, 8, 10, 12]:
+            age_days+=31
+        elif age_months in [4, 6, 9, 11]:
+            age_days+=30
+        elif age_months == 2:
+            if leap_year:
+                age_days+=29
+            else:
+                age_days+=28
 
     for year in range(birth_year, current_year):
         if not isleap(year):
