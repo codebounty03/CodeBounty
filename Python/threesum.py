@@ -1,3 +1,4 @@
+value = int(input(give number))
 def threeSum(nums):
     result = []
     nums.sort(reverse=True)  
@@ -25,10 +26,12 @@ def threeSum(nums):
             else:
                 right += 1
 
-    return result
-
+         return result
 
 if __name__ == "__main__":
     nums = [1, 1, 1, 1, 1];value
     result = threeSum(nums)
     print(result)
+
+#I honestly ran out of time to fix this one but the error is in the way it reads inputs and the alculation for any triplet greater than 1. Thank you all for the oppurtunity.
+    

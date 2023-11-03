@@ -1,5 +1,9 @@
-class Solution(object):
-    def generateParenthesis(self,n,currentString = '',close = 0):
+#added n as an integer that cn be added value to by the user
+n = int(input("Input desired value "))
+class Solution(object):2
+   
+    
+def generateParenthesis(self,n,currentString = '',close = 0):
         if n == 1 and close == 0:
               return [currentString + "()"]
         elif n == 0 and close == 1:

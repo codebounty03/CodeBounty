@@ -1,5 +1,9 @@
+from asyncio import current_task
 import time
 from calendar import isleap
+
+# change how months and days are calculated, right now there was a bug where month would be negative if it was higher than current month. uwu
+
 
 def calculate_age(name, birth_year, birth_month, birth_day):
     current_time = time.localtime(time.time())
@@ -25,9 +29,27 @@ def calculate_age(name, birth_year, birth_month, birth_day):
 
     age_years = current_year - birth_year
 
-    age_months = current_month - birth_month
+
+    if current_month > birth_month:
+     age_months = current_month - birth_month
     
-    age_days = current_day - birth_day
+    elif current_month < birth_month:
+     age_months = current_month
+
+    elif current_month == birth_month:
+     return 0
+
+
+    if current_day > birth_day:
+     age_days = current_day - birth_day
+
+    elif current_day < birth_day:
+     age_days = current_day
+
+    elif current_task == birth_day:
+     age_days = 0
+   
+
 
     for year in range(birth_year, current_year):
         if not isleap(year):
@@ -44,13 +66,14 @@ def calculate_age(name, birth_year, birth_month, birth_day):
     print(f"{name}'s age is {age_years} years, {age_months} months, or {age_days} days.")
 
 def month_days(month, leap_year):
-    if month in [1, 3, 5, 7, 8, 10, 12]:
+    if month == 2:
+        return 29 if leap_year else 28
+    elif month in [1, 3, 5, 7, 8, 10, 12]:
         return 31
     elif month in [4, 6, 9, 11]:
         return 30
-    elif month == 2:
-        return 29 if leap_year else 28
-
+    
+   
 if __name__ == "__main__":
     name = input("Input your name: ")
     birth_year = int(input("Input your birth year: "))
