@@ -1,12 +1,13 @@
 class Solution(object):
     def generateParenthesis(self,n,currentString = '',close = 0):
+
+
         if n == 1 and close == 0:
               return [currentString + "()"]
         elif n == 0 and close == 1:
               return [currentString + ")"]
         elif n == 0 and close == 0:
               return [currentString]  
-
         allPossibleVariations = []  
 
         if n >= 1:
@@ -25,7 +26,10 @@ class Solution(object):
             else: allPossibleVariations.append(getSubVariations)
         return allPossibleVariations
 solution = Solution()
-result = solution.generateParenthesis(n+1)
-
+a=int(input())
+result = solution.generateParenthesis(a)
+lst =[]
 for combination in result:
-    print(combination)
+    lst.append(combination)
+    # print(f"[ {combination}]", end="  ")
+print(lst)
