@@ -8,8 +8,8 @@ class Solution(object):
             return float(merged_list[total_elements // 2])
         else:
             middle1 = merged_list[total_elements // 2 - 1]
-            middle2 = merged_list[total_elements // 2 - 1]
-            return middle1  
+            middle2 = merged_list[total_elements // 2]
+            return (middle1 + middle2) / 2
 
 solution = Solution()
 
