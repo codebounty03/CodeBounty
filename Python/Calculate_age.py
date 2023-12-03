@@ -1,3 +1,4 @@
+# Calculating age using Python....
 import time
 from calendar import isleap
 
@@ -54,7 +55,7 @@ def month_days(month, leap_year):
 if __name__ == "__main__":
     name = input("Input your name: ")
     birth_year = int(input("Input your birth year: "))
-    birth_month = int(input("Input your birth month: "))
-    birth_day = int(input("Input your birth day: "))
+    birth_month = int(input("Input your birth month as number(1 to 12): "))
+    birth_day = int(input("Input your birth day as number(1 to 7): "))
 
     calculate_age(name, birth_year, birth_month, birth_day)
